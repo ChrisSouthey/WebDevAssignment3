@@ -1,0 +1,46 @@
+<section class="card">
+    <div class="row">
+        <h1>Employees</h1>
+        <a class="btn-link" href="/">New</a>
+    </div>
+
+    {{#if employees.length}}
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Department</th>
+                    <th>Start</th>
+                    <th>Title</th>
+                    <th>Salary</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {{#each employees}}
+                <tr>
+                    <td>{{firstName}}</td>
+                    <td>{{lastName}}</td>
+                    <td>{{department}}</td>
+                    <td>{{startDate}}</td>
+                    <td>{{jobTitle}}</td>
+                    <td>{{salary}}</td>
+                    <td class="actions">
+                        <a href="/employees/{{_id}}/edit">Update</a>
+
+                        <form action="/employees/{{_id}}?_method=DELETE" method="POST" class="inline">
+                            <a class="danger-link" href="/employees/{{_id}}/delete">Delete</a>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    {{else}}
+    <p>No employees saved yet.</p>
+    {{/if}}
+</section>

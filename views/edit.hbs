@@ -1,0 +1,50 @@
+<section class="card">
+    <h1>Update Employee</h1>
+
+    {{#if error}}
+    <div class="alert">{{error}}</div>
+    {{/if}}
+
+    <form action="/employees/{{employee._id}}/update" method="POST">
+        <div class="grid">
+            <div>
+                <label for="firstName">First name</label>
+                <input id="firstName" name="firstName" type="text" required value="{{employee.firstName}}" />
+            </div>
+
+            <div>
+                <label for="lastName">Last name</label>
+                <input id="lastName" name="lastName" type="text" required value="{{employee.lastName}}" />
+            </div>
+
+            <div>
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+                    {{#each departments}}
+                    <option value="{{value}}" {{#if selected}}selected{{/if}}>{{value}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+            <div>
+                <label for="startDate">Start date</label>
+                <input id="startDate" name="startDate" type="date" required value="{{employee.startDateValue}}" />
+            </div>
+
+            <div>
+                <label for="jobTitle">Job title</label>
+                <input id="jobTitle" name="jobTitle" type="text" required value="{{employee.jobTitle}}" />
+            </div>
+
+            <div>
+                <label for="salary">Salary</label>
+                <input id="salary" name="salary" type="number" min="0" step="1" required value="{{employee.salary}}" />
+            </div>
+        </div>
+
+        <div class="row">
+            <button type="submit">Save</button>
+            <a class="btn-link" href="/employees">Cancel</a>
+        </div>
+    </form>
+</section>
