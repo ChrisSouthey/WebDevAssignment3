@@ -16,7 +16,5 @@ type "npm run dev"
 
 
 
-Ignore the week 2 assignment stuff. I had a lot of issues with github
-
 
 
